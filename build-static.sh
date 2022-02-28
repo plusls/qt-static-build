@@ -8,6 +8,7 @@ fi
 
 CMAKE_VERSION="3.22.2"
 
+apt update && \
 apt install -y libicu-dev wget ninja-build build-essential libfontconfig1-dev libfreetype6-dev libx11-dev  \
     libxext-dev libxfixes-dev '^libxcb.*-dev' libx11-xcb-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev
 
