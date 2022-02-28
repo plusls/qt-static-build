@@ -6,14 +6,17 @@ then
     exit 1
 fi
 
-pacman -Syu --needed --noconfirm git cmake ninja \
-    libjpeg-turbo xcb-util-keysyms xcb-util-cursor libgl fontconfig xdg-utils \
-    shared-mime-info xcb-util-wm libxrender libxi sqlite mesa \
-    tslib libinput libxkbcommon-x11 libproxy libcups double-conversion brotli libb2 \
-    libfbclient mariadb-libs unixodbc postgresql alsa-lib gst-plugins-base-libs \
-    gtk3 libpulse cups freetds vulkan-headers xmlstarlet \
-    python at-spi2-core \
-    libxcomposite
+CMAKE_VERSION="3.22.2"
+
+apt install -y libicu-dev wget ninja-build build-essential libfontconfig1-dev libfreetype6-dev libx11-dev  \
+    libxext-dev libxfixes-dev '^libxcb.*-dev' libx11-xcb-dev libglu1-mesa-dev libxrender-dev libxi-dev libxkbcommon-dev libxkbcommon-x11-dev
+
+wget "https://github.com/Kitware/CMake/releases/download/v$CMAKE_VERSION/cmake-$CMAKE_VERSION-linux-x86_64.tar.gz"
+
+tar -xvf "cmake-$CMAKE_VERSION-linux-x86_64.tar.gz"
+
+export PATH="$(pwd)/cmake-$CMAKE_VERSION-linux-x86_64/bin:$PATH"
+
 
 git clone https://github.com/qt/qtbase --branch $1 --verbose --depth 1
 mkdir qt-build && cd qt-build
