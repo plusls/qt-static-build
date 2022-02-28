@@ -10,11 +10,12 @@ jobs:
     name: Publish
     strategy:
       fail-fast: false
-      include:
-        - image: "ubuntu"
-          image_version: "20.04"
-        - image: "debian"
-          image_version: "unstable"
+      matrix:
+        include:
+          - image: "ubuntu"
+            image_version: "20.04"
+          - image: "debian"
+            image_version: "unstable"
     runs-on: ubuntu-latest
     container:
       image: ${{ matrix.image }}:${{ matrix.image_version }}
