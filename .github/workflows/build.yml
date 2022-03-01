@@ -33,12 +33,12 @@ jobs:
           ZSTD_NBTHREADS: 2
         run: |
           cd installed-static
-          tar -acf ../qt-somewhere-static-${{ steps.get_version.outputs.VERSION }}-${{ matrix.image }}-${{ matrix.image_version }}-x86_64.tar.zst .
+          tar -acf ../qt-static-${{ steps.get_version.outputs.VERSION }}-${{ matrix.image }}-${{ matrix.image_version }}-x86_64.tar.zst .
       - name: Upload release assets
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: qt-somewhere-static-${{ steps.get_version.outputs.VERSION }}-${{ matrix.image }}-${{ matrix.image_version }}-x86_64.tar.zst
+          file: qt-static-${{ steps.get_version.outputs.VERSION }}-${{ matrix.image }}-${{ matrix.image_version }}-x86_64.tar.zst
           tag: ${{ github.ref }}
           file_glob: false
           overwrite: true
