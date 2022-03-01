@@ -1,6 +1,6 @@
 # Qt Static Build
 
-Build statically-linked Qt libraries for Debian!
+Build statically-linked Qt libraries for Debian and Ubuntu!
 
 The build workflow runs on new tags to build statically-linked Qt libraries from the specified tag.
 
